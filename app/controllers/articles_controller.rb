@@ -1,11 +1,19 @@
 class ArticlesController < ApplicationController
 	def new
+		@article = Article.new  # empty object
 	end
 
 	def create
 		@article = Article.new(article_params)
-		@article.save 
- 		redirect_to @article
+		if @article.save 
+ 			redirect_to @article
+ 		else
+ 			#The render method is used so that the @article object is passed back 
+ 			#to the new template when it is rendered. This rendering is done within 
+ 			#the same request as the form submission, whereas the redirect_to will 
+ 			#tell the browser to issue another request.
+ 			render 'new'  # with and invalid @article
+ 		end
 	end
 
 	def show
