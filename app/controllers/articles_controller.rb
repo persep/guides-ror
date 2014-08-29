@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	def new
 		@article = Article.new  # empty object
+		# shows a html form with a POST /articles(.:format)  articles#create action
 	end
 
 	def create
@@ -26,7 +27,7 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])  
-		# shows article in a form with a PATCH articles#update action
+		# shows article in a html form with a PATCH articles#update action
 	end
 
 	def update
