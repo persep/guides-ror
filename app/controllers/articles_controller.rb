@@ -24,6 +24,21 @@ class ArticlesController < ApplicationController
   		@articles = Article.all
 	end
 
+	def edit
+		@article = Article.find(params[:id])  
+		# shows article in a form with a PATCH articles#update action
+	end
+
+	def update
+		@article = Article.find(params[:id])
+
+		if @article.update(article_params)
+			redirect_to @article
+		else
+			render 'edit'
+		end
+	end
+
 	private
 
 	def article_params
