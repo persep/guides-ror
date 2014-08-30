@@ -7,3 +7,11 @@
 	<strong>Comment:</strong>
 	<%= comment.body %>
 </p>
+
+<p>
+	<%# DELETE /articles/:article_id/comments/:id(.:format)      comments#destroy %>
+	<%# [comment.article, comment] == article_comment_path %>
+	<%= link_to 'Destroy Comment', [comment.article, comment],
+	method: :delete,
+	data: { confirm: 'Are you sure?' } %>
+</p>

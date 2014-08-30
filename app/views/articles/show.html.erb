@@ -17,7 +17,7 @@
 
 <%# @article is available to any partials rendered in the view because we defined it %>
 <%#as an instance variable %>
-<% render 'comments/form' %>
+<%= render 'comments/form' %>
 
 <%= link_to 'Back', articles_path %>
 | <%= link_to 'Edit', edit_article_path(@article) %>

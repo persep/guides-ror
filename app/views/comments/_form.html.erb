@@ -2,7 +2,7 @@
 <%# http://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-build %>
 
 <%#article_comments POST /articles/:article_id/comments(.:format) comments#create %>
-
+<%# uses article_comments_path %>
 <%= form_for([@article, @article.comments.build]) do |f| %>
 <p>
 	<%= f.label :commenter %><br>
