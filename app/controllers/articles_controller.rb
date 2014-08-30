@@ -43,8 +43,8 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-		
-		redirect_to articles_path
+
+		redirect_to articles_path # redirect to indox so we don't need a view
 	end
 
 	private
