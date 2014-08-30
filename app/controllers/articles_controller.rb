@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	http_basic_authenticate_with name: "utest", password: "secret", except: [:index, :show]
+
 	def new
 		@article = Article.new  # empty object
 		# shows a html form with a POST /articles(.:format)  articles#create action
