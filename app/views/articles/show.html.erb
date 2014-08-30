@@ -9,17 +9,8 @@
 </p>
 
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<%#  it assigns each comment to a local variable named the same as the partial, in this case comment which is then available in the partial for us to show %>
+<%= render @article.comments %> <%# returns an array of Comment objects and each one is passed to the same name partial _comment%>
 
 <h2>Add a comment:</h2>
 <%# The form_for call here uses an array, which will build a nested route, such as /articles/1/comments%>
