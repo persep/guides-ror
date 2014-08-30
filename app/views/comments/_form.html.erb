@@ -1,0 +1,18 @@
+<%# The form_for call here uses an array, which will build a nested route, such as /articles/1/comments%>
+<%# http://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-build %>
+
+<%#article_comments POST /articles/:article_id/comments(.:format) comments#create %>
+
+<%= form_for([@article, @article.comments.build]) do |f| %>
+<p>
+	<%= f.label :commenter %><br>
+	<%= f.text_field :commenter %>
+</p>
+<p>
+	<%= f.label :body %><br>
+	<%= f.text_area :body %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>

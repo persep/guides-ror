@@ -9,28 +9,15 @@
 </p>
 
 <h2>Comments</h2>
-<%#  it assigns each comment to a local variable named the same as the partial, in this case comment which is then available in the partial for us to show %>
+<%#  it assigns each comment to a local variable named the same as the partial, in this case%>
+<%# comment which is then available in the partial for us to show %>
 <%= render @article.comments %> <%# returns an array of Comment objects and each one is passed to the same name partial _comment%>
 
 <h2>Add a comment:</h2>
-<%# The form_for call here uses an array, which will build a nested route, such as /articles/1/comments%>
-<%# http://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-build %>
 
-<%#article_comments POST /articles/:article_id/comments(.:format) comments#create %>
-
-<%= form_for([@article, @article.comments.build]) do |f| %>
-<p>
-	<%= f.label :commenter %><br>
-	<%= f.text_field :commenter %>
-</p>
-<p>
-	<%= f.label :body %><br>
-	<%= f.text_area :body %>
-</p>
-<p>
-	<%= f.submit %>
-</p>
-<% end %>
+<%# @article is available to any partials rendered in the view because we defined it %>
+<%#as an instance variable %>
+<% render 'comments/form' %>
 
 <%= link_to 'Back', articles_path %>
 | <%= link_to 'Edit', edit_article_path(@article) %>
